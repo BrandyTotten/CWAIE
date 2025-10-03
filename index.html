@@ -1,65 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>New Hampshire Department of Health and Human Services</title>
-  <style>
-    /* Full-page background image that covers the viewport */
-    :root{--overlay: rgba(0,0,0,0.35);} /* change overlay opacity here */
-    html,body{height:100%;margin:0}
-    body{
-      /* Replace the URL below with a local filename (e.g. "background.jpg")
-         or an absolute URL (https://...)
-      */
-      background-image: url('background.jpg');
-      background-position: center center;
-      background-size: cover; /* cover the entire viewport */
-      background-repeat: no-repeat;
-      background-attachment: fixed; /* optional: makes the image stay while content scrolls */
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      color: white;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    /* Optional dark overlay to improve text contrast */
-    .overlay{
-      position:fixed;inset:0;pointer-events:none;background:linear-gradient(to bottom, rgba(0,0,0,0.2), var(--overlay));
-    }
-
-    /* Centered content */
-    .center{
-      min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem;box-sizing:border-box;position:relative;z-index:1;
-    }
-
-    .card{
-      background: rgba(0,0,0,0.35); /* translucent card for legibility */
-      padding:1.75rem 2rem;border-radius:12px;max-width:880px;width:100%;backdrop-filter: blur(6px);
-      box-shadow: 0 6px 30px rgba(0,0,0,0.45);
-    }
-
-    h1{margin:0 0 .5rem;font-size:clamp(1.6rem,3.6vw,2.2rem);}
-    p{margin:0;font-size:clamp(1rem,1.6vw,1.125rem);opacity:0.95}
-
-    /* Small responsive helper */
-    @media (max-width:520px){
-      .card{padding:1.25rem;border-radius:10px}
-    }
-
-    /* Accessible hidden text for users who disable images */
-    .no-image-msg{display:none}
-    @media (prefers-reduced-motion:reduce){
-      body{background-attachment:scroll}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Selector</title>
 </head>
 <body>
-  <!-- If you want to swap the background dynamically from JS, target document.body.style.backgroundImage -->
+    <h1>Select a Page to Visit</h1>
 
-  <div class="overlay" aria-hidden="true"></div>
+    <select id="pageSelect">
+        <option value="">--Choose a page--</option>
+        <option value="USS.html">Retail Chat Demo</option>
+        <option value="NewHampshireDHHR.html">Government Chat Demo</option>
+        <option value="page3.html">Healthcare Chat Demo</option>
+    </select>
 
-	<div id="divicw" data-bind="E10822E1-EFFE-4041-8ED8-CD1997FB0039" data-org="" data-guid="3ea108d8-fd7e-4faf-b000-ea44c5e68fd5"></div><script>var i={t:function(t){var e="https://media.imi.chat/widget/js/imichatinit.js";try{var o=new XMLHttpRequest;o.onreadystatechange=function(){if(this.readyState==4){var t=document.getElementById("divicw");if(this.status==0){i.o(t);return}var e=document.createElement("script");e.innerHTML=this.responseText;t.parentNode.insertBefore(e,t.nextSibling)}};o.open("GET",e,true);o.send()}catch(s){console.error(s)}},o:function(t){t.insertAdjacentHTML("afterend",'<iframe id="tls_al_frm" frameborder="0" style="overflow: hidden;height: 208px;width: 394px;position: fixed;display: block;right: 48px;bottom: 12px;z-index: 99999; display:none;"></iframe>');var e=document.getElementById("tls_al_frm");var o=e.contentWindow||(e.contentDocument.document||e.contentDocument);o.document.open();o.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Untitled Document</title><style>body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;color: #99a0b0;font-size: 14px;}.popover__content{background-color: #fbfbfe; padding: 1.5rem; border-radius: 5px; width: 300px; box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);position: relative;}.popover__message{font-weight: 600;color:#56627c;font-size: 16px;}.pull-left{float:left;}.clearfix{clear: both;}.hdr-txt{width: 218px; margin-top: 3px;}.para-txt a{text-decoration: none;color: #005cde;}.close-btn{position: absolute;right:15px;top:15px;}.close-btn a{text-decoration: none;font-weight: 400; color: #56627c; font-size: 16px;}</style></head><body><div class="popover__content"><div class="close-btn"><a href="#" onclick="closeTLSAlert();">X</a></div><div class="popover__message"><div class="pull-left hdr-txt">This browser version is not supported on LiveChat.</div></div><div class="clearfix"></div><p class="para-txt">Please update your browser to the latest version and re-open the website to access the widget. </p></div><script>function closeTLSAlert(){window.parent.postMessage({key: "close_tls_alert",value: "close_tls_alert",action: "close_tls_alert"}, "*");}<\\/script></body></html>');o.document.close();e.style.display="block";window.addEventListener("message",function(t){if(t.data.action=="close_tls_alert"){i.s()}})},s:function(){var t=document.getElementById("tls_al_frm");t.remove()}};i.t(function(t){});</script>
+    <button onclick="goToPage()">Go</button>
 
+    <script>
+        function goToPage() {
+            const select = document.getElementById('pageSelect');
+            const selectedPage = select.value;
+            if (selectedPage) {
+                window.location.href = selectedPage;
+            } else {
+                alert('Please select a page first.');
+            }
+        }
+    </script>
 </body>
 </html>
