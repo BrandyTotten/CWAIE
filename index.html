@@ -1,32 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Selector</title>
+    <title>Simple Selector Page</title>
 </head>
 <body>
-    <h1>Select a Page to Visit</h1>
-
-    <select id="pageSelect">
-        <option value="">--Choose a page--</option>
-        <option value="USS.html">Retail Chat Demo</option>
-        <option value="NewHampshireDHHR.html">Government Chat Demo</option>
-        <option value="comforting-scone-6be7ec.netlify.app">Healthcare Chat Demo</option>
-    </select>
-
-    <button onclick="goToPage()">Go</button>
-
-    <script>
-        function goToPage() {
-            const select = document.getElementById('pageSelect');
-            const selectedPage = select.value;
-            if (selectedPage) {
-                window.location.href = selectedPage;
-            } else {
-                alert('Please select a page first.');
-            }
-        }
-    </script>
+    <h1>Select a Page</h1>
+    <ul>
+        <li><a href="USS.html">Retail Chat Demo</a></li>
+        <li><a href="NewHampshireDHHR.html">Government Chat Demo</a></li>
+        <li><a href="comforting-scone-6be7ec.netlify.app" target="_blank">Healthcare Chat Demo</a></li>
+    </ul>
 </body>
 </html>
